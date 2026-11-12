@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZedoDev Open | Formação Gratuita Fullstack Sênior PHP & Laravel</title>
+    <meta name="description" content="Formação gratuita, acessível e sem fins lucrativos em arquitetura Fullstack Sênior com PHP 8.4, Laravel, DDD, Vue 3, Inertia.js e Docker.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#FF2D20',
+                            purple: '#777BB4',
+                            dark: '#09090B',
+                            card: '#121215',
+                            border: '#27272A'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-brand-red to-brand-purple flex items-center justify-center font-mono font-bold text-white" aria-hidden="true">
+                    &lt;/&gt;
+                </div>
+                <span class="font-bold text-xl tracking-tight">Zedo<span class="text-brand-red">Dev</span></span>
+                <span class="ml-2 text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Open Source</span>
+            </div>
+            
+            <nav aria-label="Navegação Principal" class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
+                <a href="#stack" class="hover:text-white transition">A Stack</a>
+                <a href="#sala-aula" class="hover:text-white transition">Apostilas & Voz</a>
+                <a href="#carreira" class="hover:text-white transition">Vagas Alvo</a>
+                <a href="#curriculo" class="text-emerald-400 hover:text-emerald-300 transition font-semibold">Gerar Currículo</a>
+            </nav>
+
+            <div class="flex items-center gap-3">
+                <a href="#sala-aula" class="bg-brand-red hover:bg-red-600 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-lg shadow-brand-red/20">
+                    Acessar Apostilas
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-brand-border text-xs font-mono text-emerald-400 mb-6">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    100% GRATUITO • APOSTILAS PDF • ACESSIBILIDADE POR VOZ
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight mb-6">
+                    Engenharia <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-brand-purple">Fullstack Sênior</span> acessível a todos.
+                </h1>
+                <p class="text-lg text-zinc-400 mb-8 leading-relaxed">
+                    Estude arquitetura PHP 8.4, Laravel, DDD, filas distribuídas, Vue 3 e Docker através de apostilas técnicas em PDF com leitura por voz integrada e gere seu currículo em PDF.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#sala-aula" class="bg-brand-red hover:bg-red-600 text-white font-bold px-8 py-4 rounded-xl text-center transition flex items-center justify-center gap-2">
+                        Abrir Apostilas <i class="fa-solid fa-file-pdf text-sm"></i>
+                    </a>
+                    <a href="#curriculo" class="bg-zinc-900 hover:bg-zinc-800 border border-brand-border text-white font-semibold px-8 py-4 rounded-xl text-center transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-lines text-emerald-400"></i> Montar Currículo
+                    </a>
+                </div>
+            </div>
+
+            <!-- Code Preview -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-6 code-glow font-mono text-sm">
+                <div class="flex items-center justify-between mb-4 pb-4 border-b border-brand-border">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        <span class="ml-2 text-xs text-zinc-500">AccessibleStudyAction.php</span>
+                    </div>
+                    <span class="text-xs text-emerald-400">PHP 8.4</span>
+                </div>
+                <pre class="text-zinc-300 overflow-x-auto leading-relaxed"><code><span class="text-purple-400">namespace</span> App\Domain\Education\Actions;
+
+<span class="text-purple-400">final readonly class</span> <span class="text-yellow-300">AccessibleStudyAction</span>
+{
+    <span class="text-purple-400">public function</span> <span class="text-blue-400">execute</span>(Developer <span class="text-orange-300">$student</span>, Module <span class="text-orange-300">$pdf</span>): StudySession
+    {
+        <span class="text-orange-300">$pdf</span>-><span class="text-blue-400">renderDocument</span>(format: <span class="text-green-300">'PDF/A'</span>);
+        <span class="text-orange-300">$pdf</span>-><span class="text-blue-400">enableVoiceReader</span>(lang: <span class="text-green-300">'pt-BR'</span>);
+
+        <span class="text-purple-400">return new</span> StudySession(cost: <span class="text-emerald-400">0.00</span>, accessible: <span class="text-purple-400">true</span>);
+    }
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stack Completa -->
+    <section id="stack" class="py-20 bg-zinc-950 border-y border-brand-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold mb-4">A Stack Fullstack de Produção</h2>
+                <p class="text-zinc-400">Competências práticas exigidas por empresas de tecnologia de alta escala.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-brand-card border border-brand-border p-6 rounded-xl hover:border-brand-red transition">
+                    <i class="fa-brands fa-php text-4xl text-brand-purple mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-lg mb-1">PHP 8.4 Moderno</h3>
+                    <p class="text-sm text-zinc-400">Tipagem estrita, Fibers, Property Hooks, JIT e análise estática com PHPStan nível 9.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border p-6 rounded-xl hover:border-brand-red transition">
+                    <i class="fa-brands fa-laravel text-4xl text-brand-red mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-lg mb-1">Ecossistema Laravel</h3>
+                    <p class="text-sm text-zinc-400">Octane, Horizon, Reverb (WebSockets), Sanctum, Pennant e filas distribuídas.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border p-6 rounded-xl hover:border-brand-red transition">
+                    <i class="fa-brands fa-vuejs text-4xl text-emerald-500 mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-lg mb-1">Frontend Reativo</h3>
+                    <p class="text-sm text-zinc-400">Inertia.js, Vue 3 (Composition API), TypeScript, Tailwind CSS e Livewire 3.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border p-6 rounded-xl hover:border-brand-red transition">
+                    <i class="fa-brands fa-docker text-4xl text-blue-500 mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-lg mb-1">DevOps & Linux</h3>
+                    <p class="text-sm text-zinc-400">Docker multi-stage, Redis, PostgreSQL avançado, GitHub Actions e self-hosting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sala de Aula em PDF + Acessibilidade por Voz -->
+    <section id="sala-aula" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+                <span class="text-xs font-mono uppercase px-3 py-1 rounded-full bg-brand-red/10 text-brand-red border border-brand-red/20">Apostilas PDF & Leitor de Voz</span>
+                <h2 class="text-3xl font-bold mt-3">Sala de Estudo Acessível</h2>
+                <p class="text-zinc-400 text-sm mt-1">Leia a apostila diretamente na tela, baixe o PDF ou ative a narração por voz.</p>
+            </div>
+            <div class="bg-brand-card border border-brand-border px-4 py-3 rounded-xl min-w-[240px]">
+                <div class="flex justify-between text-xs font-mono mb-1.5">
+                    <span class="text-zinc-400">SEU PROGRESSO</span>
+                    <span id="progress-text" class="text-emerald-400 font-bold">0% (0/4)</span>
+                </div>
+                <div class="w-full bg-zinc-800 h-2 rounded-full overflow-hidden" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div id="progress-bar" class="bg-emerald-500 h-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra de Acessibilidade por Voz -->
+        <div role="region" aria-label="Controles de Acessibilidade por Voz" class="bg-zinc-900 border border-emerald-500/30 rounded-2xl p-4 mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                    <i class="fa-solid fa-volume-high text-lg" aria-hidden="true"></i>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white">Leitor de Voz Integrado (pt-BR)</h3>
+                    <p id="voice-status" class="text-xs text-zinc-400 font-mono">Pronto para narrar o conteúdo da apostila selecionada.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="speakLesson()" aria-label="Ouvir conteúdo da apostila" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg transition flex items-center gap-2">
+                    <i class="fa-solid fa-play"></i> Ouvir Aula
+                </button>
+                <button onclick="pauseResumeSpeech()" id="btn-pause-voice" aria-label="Pausar ou retomar leitura" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold px-3.5 py-2.5 rounded-lg border border-brand-border transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-pause"></i> Pausar
+                </button>
+                <button onclick="stopSpeech()" aria-label="Parar leitura por voz" class="bg-zinc-800 hover:bg-zinc-700 text-red-400 text-xs font-semibold px-3.5 py-2.5 rounded-lg border border-brand-border transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-stop"></i> Parar
+                </button>
+                <select id="voice-rate" aria-label="Velocidade da voz" onchange="updateVoiceRate()" class="bg-zinc-950 border border-brand-border text-zinc-300 text-xs font-mono rounded-lg px-2.5 py-2.5 focus:outline-none focus:border-emerald-500">
+                    <option value="0.9">0.9x</option>
+                    <option value="1" selected>1.0x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="1.8">1.8x</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Visualizador PDF Embutido -->
+            <div class="lg:col-span-2 bg-brand-card border border-brand-border rounded-2xl overflow-hidden flex flex-col">
+                <div class="p-4 bg-zinc-900/70 border-b border-brand-border flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <span id="lesson-badge" class="text-xs font-mono text-emerald-400 block">APOSTILA 01 • PDF TÉCNICO</span>
+                        <h3 id="lesson-title" class="text-lg font-bold text-white">Domain-Driven Design (DDD) Pragmático e Pattern Action</h3>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <a id="btn-download-pdf" href="#" download="apostila-01-ddd-laravel.pdf" class="bg-zinc-800 hover:bg-zinc-700 text-zinc-200 text-xs font-semibold px-3 py-2 rounded-lg border border-brand-border transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-download text-brand-red"></i> Baixar PDF
+                        </a>
+                        <button id="btn-complete-lesson" onclick="toggleCurrentLesson()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-lg transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-check"></i> Concluir
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Frame do PDF -->
+                <div class="w-full h-[540px] bg-zinc-950 relative">
+                    <iframe id="lesson-pdf-viewer" title="Visualizador de Apostila PDF" class="w-full h-full border-0" src=""></iframe>
+                </div>
+
+                <!-- Resumo Textual Acessível -->
+                <div class="p-6 border-t border-brand-border bg-zinc-900/30">
+                    <h4 class="text-xs font-mono uppercase text-zinc-400 mb-2">Transcrição & Resumo Acessível da Apostila</h4>
+                    <p id="lesson-desc" class="text-sm text-zinc-300 leading-relaxed"></p>
+                </div>
+            </div>
+
+            <!-- Lista de Apostilas -->
+            <div class="bg-brand-card border border-brand-border rounded-2xl p-4 space-y-2 h-fit">
+                <h4 class="text-xs font-mono uppercase text-zinc-400 px-2 pb-2 border-b border-brand-border">Apostilas do Curso (PDF)</h4>
+                
+                <button onclick="selectLesson(0)" id="lesson-btn-0" class="w-full text-left p-3 rounded-xl bg-zinc-900 border border-brand-red/50 transition flex items-start justify-between gap-3">
+                    <div>
+                        <span class="text-[11px] font-mono text-brand-red block">01. ARQUITETURA • PDF</span>
+                        <span class="text-sm font-semibold text-white">DDD Pragmático & Pattern Action</span>
+                    </div>
+                    <i id="check-icon-0" class="fa-regular fa-circle text-zinc-500 mt-1"></i>
+                </button>
+
+                <button onclick="selectLesson(1)" id="lesson-btn-1" class="w-full text-left p-3 rounded-xl hover:bg-zinc-900 border border-transparent transition flex items-start justify-between gap-3">
+                    <div>
+                        <span class="text-[11px] font-mono text-zinc-400 block">02. PERFORMANCE • PDF</span>
+                        <span class="text-sm font-semibold text-zinc-200">PostgreSQL Indexes, Octane & Filas</span>
+                    </div>
+                    <i id="check-icon-1" class="fa-regular fa-circle text-zinc-500 mt-1"></i>
+                </button>
+
+                <button onclick="selectLesson(2)" id="lesson-btn-2" class="w-full text-left p-3 rounded-xl hover:bg-zinc-900 border border-transparent transition flex items-start justify-between gap-3">
+                    <div>
+                        <span class="text-[11px] font-mono text-zinc-400 block">03. FULLSTACK • PDF</span>
+                        <span class="text-sm font-semibold text-zinc-200">Inertia.js, Vue 3, TypeScript & Reverb</span>
+                    </div>
+                    <i id="check-icon-2" class="fa-regular fa-circle text-zinc-500 mt-1"></i>
+                </button>
+
+                <button onclick="selectLesson(3)" id="lesson-btn-3" class="w-full text-left p-3 rounded-xl hover:bg-zinc-900 border border-transparent transition flex items-start justify-between gap-3">
+                    <div>
+                        <span class="text-[11px] font-mono text-zinc-400 block">04. DEVOPS • PDF</span>
+                        <span class="text-sm font-semibold text-zinc-200">Docker Multi-Stage & CI/CD Zero-Downtime</span>
+                    </div>
+                    <i id="check-icon-3" class="fa-regular fa-circle text-zinc-500 mt-1"></i>
+                </button>
+
+                <div class="pt-3 mt-3 border-t border-brand-border px-2 text-xs text-zinc-500">
+                    <p><i class="fa-solid fa-volume-high mr-1 text-emerald-400"></i> Dica: Use o leitor de voz acima para ouvir o conteúdo completo de cada apostila.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carreira e Vagas Alvo -->
+    <section id="carreira" class="py-20 bg-zinc-950 border-y border-brand-border px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <h2 class="text-3xl font-bold mb-4">Vagas que Você Estará Apto a Disputar</h2>
+                <p class="text-zinc-400">Ao concluir os projetos práticos, seu portfólio comprova senioridade para posições no Brasil e no exterior.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+                    <span class="text-xs font-mono text-brand-red">FULLSTACK</span>
+                    <h3 class="text-lg font-bold mt-2 mb-2">Fullstack Sênior PHP/Laravel</h3>
+                    <p class="text-zinc-400 text-sm">Atuação ponta a ponta com Laravel, Inertia.js, Vue 3, TypeScript e testes automatizados.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+                    <span class="text-xs font-mono text-brand-purple">BACKEND</span>
+                    <h3 class="text-lg font-bold mt-2 mb-2">Engenheiro Backend Sênior</h3>
+                    <p class="text-zinc-400 text-sm">APIs de alto tráfego, mensageria (RabbitMQ/Redis), Octane e otimização de PostgreSQL.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+                    <span class="text-xs font-mono text-emerald-400">LIDERANÇA</span>
+                    <h3 class="text-lg font-bold mt-2 mb-2">Tech Lead / Arquiteto</h3>
+                    <p class="text-zinc-400 text-sm">Definição de arquitetura limpa (DDD), Code Review e sustentação de sistemas críticos.</p>
+                </div>
+
+                <div class="bg-brand-card border border-brand-border rounded-xl p-6">
+                    <span class="text-xs font-mono text-blue-400">REMOTO GLOBAL</span>
+                    <h3 class="text-lg font-bold mt-2 mb-2">Vagas Internacionais</h3>
+                    <p class="text-zinc-400 text-sm">Empresas nos EUA e Europa que utilizam a stack VILT (Vue, Inertia, Laravel, Tailwind).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gerador de Currículo ao Final do Curso -->
+    <section id="curriculo" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <span class="text-xs font-mono uppercase px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Conclusão & Empregabilidade</span>
+            <h2 class="text-3xl font-bold mt-4 mb-4">Gerador de Currículo Técnico Sênior</h2>
+            <p class="text-zinc-400">Seus dados são salvos automaticamente no navegador. Selecione suas skills dominadas e exporte em PDF.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start">
+            <div class="lg:col-span-5 bg-brand-card border border-brand-border rounded-2xl p-6 space-y-4">
+                <div class="flex justify-between items-center border-b border-brand-border pb-3">
+                    <h3 class="font-bold text-lg flex items-center gap-2">
+                        <i class="fa-solid fa-user-pen text-brand-red"></i> Seus Dados
+                    </h3>
+                    <button onclick="resetCV()" class="text-xs text-zinc-500 hover:text-red-400 font-mono">Limpar</button>
+                </div>
+
+                <div>
+                    <label for="cv-input-name" class="block text-xs font-mono text-zinc-400 mb-1">NOME COMPLETO</label>
+                    <input type="text" id="cv-input-name" oninput="updateCV()" placeholder="Ex: Maria Oliveira" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <div>
+                    <label for="cv-input-role" class="block text-xs font-mono text-zinc-400 mb-1">CARGO ALVO</label>
+                    <select id="cv-input-role" onchange="updateCV()" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                        <option value="Engenheiro(a) de Software Fullstack Sênior (PHP / Laravel / Vue)">Engenheiro(a) Fullstack Sênior (PHP / Laravel / Vue)</option>
+                        <option value="Desenvolvedor(a) Backend Sênior (PHP 8.4 / Laravel / Arquitetura)">Desenvolvedor(a) Backend Sênior (PHP / Laravel)</option>
+                        <option value="Tech Lead PHP & Ecossistema Laravel">Tech Lead PHP & Ecossistema Laravel</option>
+                        <option value="Senior Laravel & VILT Stack Developer (Remote)">Senior Laravel & VILT Stack Developer (Global)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label for="cv-input-location" class="block text-xs font-mono text-zinc-400 mb-1">CIDADE / PAÍS</label>
+                        <input type="text" id="cv-input-location" oninput="updateCV()" placeholder="Ex: Belém, PA - Remoto" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label for="cv-input-email" class="block text-xs font-mono text-zinc-400 mb-1">E-MAIL DE CONTATO</label>
+                        <input type="email" id="cv-input-email" oninput="updateCV()" placeholder="maria@dev.com" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label for="cv-input-github" class="block text-xs font-mono text-zinc-400 mb-1">GITHUB</label>
+                        <input type="text" id="cv-input-github" oninput="updateCV()" placeholder="github.com/mariaoliveira" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label for="cv-input-linkedin" class="block text-xs font-mono text-zinc-400 mb-1">LINKEDIN</label>
+                        <input type="text" id="cv-input-linkedin" oninput="updateCV()" placeholder="linkedin.com/in/maria" class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="cv-input-summary" class="block text-xs font-mono text-zinc-400 mb-1">RESUMO PROFISSIONAL</label>
+                    <textarea id="cv-input-summary" oninput="updateCV()" rows="2" placeholder="Descreva sua experiência e foco técnico..." class="w-full bg-zinc-900 border border-brand-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-emerald-500"></textarea>
+                </div>
+
+                <div>
+                    <span class="block text-xs font-mono text-zinc-400 mb-2">SKILLS DOMINADAS (CLIQUE PARA INCLUIR)</span>
+                    <div id="skills-selector" class="flex flex-wrap gap-1.5"></div>
+                </div>
+
+                <div>
+                    <span class="block text-xs font-mono text-zinc-400 mb-2">PROJETOS DO CURSO CONCLUÍDOS</span>
+                    <div class="space-y-2 text-xs text-zinc-300">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked onchange="updateCV()" id="proj-1" class="accent-emerald-500">
+                            <span>SaaS Multi-Tenant para ONGs (Laravel 12 + PostgreSQL)</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked onchange="updateCV()" id="proj-2" class="accent-emerald-500">
+                            <span>Hub de Mentoria Real-Time (Inertia + Vue 3 + Reverb)</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" checked onchange="updateCV()" id="proj-3" class="accent-emerald-500">
+                            <span>API Gateway & Telemetria (Octane + RabbitMQ + Docker)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="pt-2 flex gap-3">
+                    <button onclick="window.print()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-file-pdf"></i> Salvar Currículo em PDF
+                    </button>
+                    <button onclick="copyCVText()" class="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3 px-4 rounded-xl transition" title="Copiar texto para LinkedIn">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Folha do Currículo -->
+            <div id="cv-preview" class="lg:col-span-7 bg-white text-zinc-900 rounded-2xl p-8 shadow-2xl border border-zinc-200 flex flex-col justify-between">
+                <div>
+                    <div class="border-b-2 border-zinc-900 pb-4 mb-6 flex flex-col sm:flex-row sm:justify-between sm:items-end gap-4">
+                        <div>
+                            <h3 id="out-name" class="text-2xl font-black uppercase tracking-tight text-zinc-900">Seu Nome Completo</h3>
+                            <p id="out-role" class="text-sm font-bold text-red-600 mt-1">Engenheiro(a) de Software Fullstack Sênior (PHP / Laravel / Vue)</p>
+                        </div>
+                        <div class="text-xs text-zinc-600 space-y-1 sm:text-right font-mono">
+                            <p id="out-location"><i class="fa-solid fa-location-dot mr-1"></i> Sua Cidade - Remoto</p>
+                            <p id="out-email"><i class="fa-solid fa-envelope mr-1"></i> seuemail@exemplo.com</p>
+                            <p id="out-links">github.com/seu-usuario • linkedin.com/in/voce</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="text-xs font-black uppercase tracking-wider text-zinc-500 mb-2">Resumo Técnico</h4>
+                        <p id="out-summary" class="text-sm text-zinc-700 leading-relaxed">
+                            Engenheiro(a) de Software Fullstack com sólida experiência no ecossistema PHP 8.4 e Laravel. Especialista em arquitetura limpa (DDD, SOLID), processamento assíncrono com filas distribuídas, otimização de bancos relacionais e desenvolvimento de interfaces reativas com Vue 3, Inertia.js e TypeScript.
+                        </p>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="text-xs font-black uppercase tracking-wider text-zinc-500 mb-2">Competências Técnicas Selecionadas</h4>
+                        <div id="out-skills" class="flex flex-wrap gap-1.5"></div>
+                    </div>
+
+                    <div class="mb-6">
+                        <h4 class="text-xs font-black uppercase tracking-wider text-zinc-500 mb-2">Projetos Práticos & Portfólio Open Source</h4>
+                        <ul id="out-projects" class="space-y-2 text-xs text-zinc-700"></ul>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-zinc-200 flex flex-col sm:flex-row justify-between sm:items-center gap-2 text-xs text-zinc-500">
+                    <span><strong>Formação:</strong> Fullstack Sênior PHP & Laravel — ZedoDev Open</span>
+                    <span id="out-hash" class="font-mono text-emerald-700 font-bold">✓ ID: ZEDO-2026-OPEN</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-brand-border py-12 text-center text-zinc-500 text-sm">
+        <p>ZedoDev Open • Iniciativa Educacional Sem Fins Lucrativos.</p>
+        <p class="mt-2 font-mono text-xs">Código e conteúdo licenciados sob MIT / Creative Commons BY-SA 4.0.</p>
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>

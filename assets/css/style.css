@@ -1,0 +1,31 @@
+body {
+    background-color: #09090B;
+    color: #F4F4F5;
+}
+
+.code-glow {
+    box-shadow: 0 0 40px -10px rgba(255, 45, 32, 0.25);
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #cv-preview,
+    #cv-preview * {
+        visibility: visible;
+    }
+
+    #cv-preview {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: white !important;
+        color: black !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 20px !important;
+    }
+}
